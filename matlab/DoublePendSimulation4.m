@@ -19,17 +19,11 @@
 %   This number is a double that represents a percentage in a decimal
 %   format. This percentage is the simulation speed as a percentage of the
 %   normal speed. So 50% speed would have simspeed = 0.5.
-%
-%   @param angorangvel
-%   This is either a 1 or a 2, do not pass in a value besides these. If it
-%   is a 1, then the graph on the right will show the angles of the two
-%   pendulums as they move throughout time. If this value is a 2, then the
-%   graph on the right will be the angular velocities of the two pendulums
-%   as they move throughout time.
+
 
 %%   ---------------------------------------------------------------------
 
-function DoublePendSimulation4(ic, time, simspeed, angorangvel)
+function DoublePendSimulation4(ic, time, simspeed)
 clear All;
 
 % opengl software;

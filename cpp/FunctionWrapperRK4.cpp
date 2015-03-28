@@ -8,7 +8,7 @@ FunctionWrapperRK4::FunctionWrapperRK4(int num_equations) {
 }
 
 template <class t>
-std::vector<t> FunctionWrapperRK4::getValues(double time, std::vector<t> state) {
+std::vector<t> FunctionWrapperRK4::getValues(double time, const std::vector<t> & state) {
     return std::vector<t>(_num_equations) = {0};
 }
 

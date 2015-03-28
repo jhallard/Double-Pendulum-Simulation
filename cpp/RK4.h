@@ -22,7 +22,7 @@ private:
 
 public:
 
-    RK4(uint num_equations, double disc, tf);
+    RK4(uint num_equations, double disc, tf, FunctionWrapperRK4 * fn);
 };
 
 
