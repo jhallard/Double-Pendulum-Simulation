@@ -28,7 +28,6 @@ public:
 
     // @self-documenting
     int getNumEquations() const; 
-
 };
 
 

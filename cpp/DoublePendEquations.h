@@ -12,7 +12,23 @@ class DoublePendEquations : public FunctionWrapperRK4 {
 
 private:
     // system constants (u-prefix is upper l-prefix is lower)
-    double gravity, ulength, umass, llength, lmass;
+    double _gravity, _ulength, _umass, _llength, _lmass;
+
+    // @func - upperThetaPrime
+    // @info - This is the differential equation for the upper theta variable : theta1' = omega1
+    double upperThetaPrime(double time, const std::vector<t> & state);
+
+    // @func - upperThetaPrime
+    // @info - This is the differential equation for the lower theta variable : theta2' = omega2
+    double lowerThetaPrime(double time, const std::vector<t> & state);
+
+    // @func - upperThetaPrime
+    // @info - This is the differential equation for the upper omega (angular velocity) variable : omega1' = 2sin(theta_1-theta_2)...
+    double upperOmegaPrime(double time, const std::vector<t> & state);
+
+    // @func - upperThetaPrime
+    // @info - This is the differential equation for the upper omega (angular velocity) variable : omega2' = L1cos(theta_1-theta_2)...
+    double lowerOmegaPrime(double time, const std::vector<t> & state);
 
 public:
 
@@ -27,8 +43,9 @@ public:
     // @func - getValues
     // @args - #1 current time value to be used in the calculations, #2 vector of values for the 4 changing state variables (uangle,
     //         uangvel, langle, langvel)
+    // #info - This function is simply going to call the 4 private utility functions to get the values, it exists to fufill the interface defined
+    //         by the base class in the hierarchy.
     std::vector<t> getValues(double time, const std::vector<t> & state);
-
 
 };
 
