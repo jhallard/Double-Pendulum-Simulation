@@ -120,6 +120,5 @@ liney2 = liney1-len2*cos(theta2);
             set(pendobjects,'Xdata', Xcoord, 'YData', Ycoord);
       
             drawnow;
-            F(i) = getframe(gcf);
     end
-    movie2avi(F,'doublePendulumAnimation.avi','compression','None','fps',fps)
+   
