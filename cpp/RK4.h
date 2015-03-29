@@ -44,8 +44,8 @@ public:
     bool solve(double disc, double tf, std::vector<double> ic);
 
     // @func - query
-    // @args - the time step you wish to extract values from (ex. 0.03333 for 30 fps)
-    std::vector<std::vector<double> > query(double step);
+    // @args - #1 the starting time for the query, #2 the end time for the query, #3 the time step you wish to jump between those points
+    std::vector<std::vector<double> > query(double t0, double tf, double step);
 
     // @func - setEquations
     // @info - enter a new set of equations to be solved

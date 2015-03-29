@@ -19,6 +19,17 @@ RK4::RK4(FunctionWrapperRK4 * fn) {
     _solutions.resize(_num_equations);
 }
 
+void printKValues(std::vector<std::vector<double> > vals) {
+    int it = 1;
+    for(auto x : vals) {
+       printf("%d : ", it++);
+        for(auto y : x) {
+            printf("%f ", y);
+        }
+        printf("\n");
+    }
+}
+
 
 // @func - solve
 // @args - #1 discretization, #2 final time for simulation (from 0s), #3 vector of initial condition values
@@ -37,46 +48,57 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         throw std::logic_error("Error : Not enough initial conditions Submitted");
     }
 
+    _solutions.clear();
+    _solutions.resize(_num_equations);
+
     std::vector<double> states = ic;
     int num_steps = (int)tf/disc;
 
     // main RK4 loop
     for(int i = 0; i < num_steps; i++) {
         double t = i*_disc;
+
+        for(int i = 0; i < states.size(); i++) {
+            _solutions[i].push_back(states[i]);
+        }
+
         _k1 = _equations->getValues(t, states);
         _k2 = _equations->getValues(t+0.5*disc, stateAdjust(states, _k1, 0.5));
         _k3 = _equations->getValues(t+0.5*disc, stateAdjust(states, _k2, 0.5));
         _k4 = _equations->getValues(t+disc, stateAdjust(states, _k2, 1.0));
 
         std::vector<std::vector<double> > vals = {_k1, _k2, _k2, _k3, _k3, _k4};
-        int it = 1;
-        for(auto x : vals) {
-           printf("%d : ", it++);
-            for(auto y : x) {
-                printf("%f ", y);
-            }
-            printf("\n\n");
-        }
+        // printKValues(vals);
         std::vector<double> sum = vectorAdd(vals);
 
         states = stateAdjust(states, sum, 0.16666);
-
-        // for(auto x : sum) {
-        //     printf("%f ", x);
-        // }
-        // printf("\n\n");
-
     }
 
-
+    return true;
 }
 
-
 // @func - query
-// @args - the time step you wish to extract values from (ex. 0.03333 for 30 fps)
-std::vector<std::vector<double> > RK4::query(double step) {
+// @args - #1 the starting time for the query, #2 the end time for the query, #3 the time step you wish to jump between those points
+std::vector<std::vector<double> > RK4::query(double t0, double tf, double step) {
 
-    return _solutions;
+    if(t0 < 0 || tf > _tf || step > tf-t0) {
+        throw std::logic_error("Error : Invalid bounds in query");
+    }
+    int start_index = t0/_disc;
+    if(start_index < 0) {
+        start_index = 0;
+    }
+    int end_index = tf/_disc;
+    int jump = step/_disc;
+
+    std::vector<std::vector<double> > ret(_num_equations);
+
+    for(int i = start_index; i < end_index && i < _solutions[0].size(); i += jump) {
+        for(int j = 0; j < _num_equations; j++) {
+            ret[j].push_back(_solutions[j][i]);
+        }
+    }
+    return ret;
 }
 
 
@@ -120,11 +142,13 @@ std::vector<double> RK4::stateAdjust(const std::vector<double> & base, const std
     return ret;
 }
 
-
+// @func - vectorAdd
+// @info - takes a vector of vectors of the same length and adds all the components together
 std::vector<double> RK4::vectorAdd(std::vector<std::vector<double> > vecs) {
 
-    if(vecs.size() <= 0)
+    if(vecs.size() <= 0) {
         return std::vector<double>();
+    }
 
     int size = vecs[0].size();
 

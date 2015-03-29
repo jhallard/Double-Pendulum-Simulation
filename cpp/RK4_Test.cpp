@@ -9,7 +9,17 @@ int main() {
 
     RK4 rk4(base_ptr);
 
-    rk4.solve(0.0001, 2, in);
+    rk4.solve(0.001, 10, in);
 
+    auto ret = rk4.query(0, 2, 0.1);
+
+    int it = 1;
+    for(auto x : ret) {
+       printf("%d : ", it++);
+        for(auto y : x) {
+            printf("%f ", y);
+        }
+        printf("\n");
+    }
     return 0;
 }
