@@ -8,7 +8,6 @@
 // @class - FunctionWrapperRK4
 // @info  - This is to serve as the base class for this hierarchy. All of these classes are meant to be wrappers around sets of equations
 //          that are passed into the RK4 class to be solved.
-template<class t>
 class FunctionWrapperRK4 {
 
 private:
@@ -24,7 +23,7 @@ public:
     // @func - getValues
     // @args - #1 current time value to be used #2 current state values to be used
     // @info - This function needs to be overwritten by child classes to return the true function values
-    std::vector<t> getValues(double, std::vector<t>);
+    std::vector<double> getValues(double, std::vector<double>);
 
     // @self-documenting
     int getNumEquations() const; 

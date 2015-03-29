@@ -114,4 +114,6 @@ liney2 = liney1-len2*cos(theta2);
       
             drawnow;
     end
+
+end
    

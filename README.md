@@ -18,8 +18,8 @@ You will be calling one of the ``DoublePendSimulation()`` functions, and passing
 
 ##### Examples
 ```matlab
-DoublePendSimulation3([.849;-.2;-1.35;0;9.81;0.9;.7;.6;.4],55,1.0, 2);
-DoublePendSimulation4([.75;-.2;-.1.15;0;9.81;0.9;.7;.6;.4],35,1.0, 2);
+DoublePendSimulation3([.849;-.2;-1.35;0.0;9.81;0.9;.7;.6;.4],55,1.0, 2);
+DoublePendSimulation4([.75;-.2;-.1.15;0.0;9.81;0.9;.7;.6;.4],35,1.0, 2);
 ```
 
 ### C++
