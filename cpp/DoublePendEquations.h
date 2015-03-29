@@ -48,7 +48,7 @@ public:
     //         uangvel, langle, langvel)
     // #info - This function is simply going to call the 4 private utility functions to get the values, it exists to fufill the interface defined
     //         by the base class in the hierarchy.
-    std::vector<double> getValues(double time, const std::vector<double> & state);
+    virtual std::vector<double> getValues(double time, const std::vector<double> & state);
 
 };
 

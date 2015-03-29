@@ -68,7 +68,8 @@ DoublePendEquations::DoublePendEquations(std::vector<double> constants) : Functi
 
 // @func - Constructor #2
 // @args - explicit values for constants above
-DoublePendEquations::DoublePendEquations(double gravity, double ulength, double umass, double llength, double lmass) : FunctionWrapperRK4(4) {
+DoublePendEquations::DoublePendEquations(double gravity, double ulength, double umass, double llength, double lmass)
+: FunctionWrapperRK4(4) {
     
     std::vector<double> constants = {gravity, ulength, umass, llength, lmass};
 
