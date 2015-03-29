@@ -1,4 +1,3 @@
-
 #include "FunctionWrapperRK4.h"
 
 FunctionWrapperRK4::FunctionWrapperRK4(int num_equations) {
@@ -6,6 +5,6 @@ FunctionWrapperRK4::FunctionWrapperRK4(int num_equations) {
         _num_equations = num_equations;
 }
 
-int getNumEquations() const {
+int FunctionWrapperRK4::getNumEquations() const {
     return _num_equations;
 }

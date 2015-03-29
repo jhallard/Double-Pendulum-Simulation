@@ -2,7 +2,7 @@
 #define FUNC_WRAP_RK4
 
 #include <vector>
-#include <math>
+#include <cmath>
 
 // @class - FunctionWrapperRK4
 // @info  - This is to serve as the base class for this hierarchy. All of these classes are meant to be wrappers around sets of equations
@@ -20,7 +20,7 @@ public:
     // @func - getValues
     // @args - #1 current time value to be used #2 current state values to be used
     // @info - Overwritte this with child classes to return the true function values.
-    virtual std::vector<double> getValues(double, std::vector<double>) = 0;
+    virtual std::vector<double> getValues(double, const std::vector<double> &) = 0;
 
     // @self-documenting
     int getNumEquations() const; 

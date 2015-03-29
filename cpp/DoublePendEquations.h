@@ -1,8 +1,9 @@
 #ifndef DOUBLE_PEND_EQUATIONS_JHA
 #define DOUBLE_PEND_EQUATIONS_JHA
 
-#include "FunctionWrapperRK4"
+#include "FunctionWrapperRK4.h"
 
+#include <stdexcept>
 // @class - DoublePendEquations
 // @info  - This class is a child class of the FunctionWrapperRK4 base class, and is used to represent the differential-equations of motions
 //          for a double-pendulum in a manner that allows them to be solved by our implementation of the Runge-Kutta-4 method (@file RK4.h). 
@@ -48,7 +49,7 @@ public:
     //         uangvel, langle, langvel)
     // #info - This function is simply going to call the 4 private utility functions to get the values, it exists to fufill the interface defined
     //         by the base class in the hierarchy.
-    virtual std::vector<double> getValues(double time, const std::vector<double> & state);
+    virtual std::vector<double> getValues(double, const std::vector<double> &);
 
 };
 

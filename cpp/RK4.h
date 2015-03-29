@@ -17,12 +17,12 @@ private:
     double t0, tf;
 
     // pointer to base object that serves as our interface to the diff. equations defined by the user
-    FunctionWrapperRK4 * function_handler;
+    // FunctionWrapperRK4 * function_handler;
 
 
 public:
 
-    RK4(uint num_equations, double disc, tf, FunctionWrapperRK4 * fn);
+    RK4(int num_equations, double disc, double tf, FunctionWrapperRK4 * fn);
 };
 
 

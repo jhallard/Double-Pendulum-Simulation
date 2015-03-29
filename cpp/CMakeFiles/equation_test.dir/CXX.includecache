@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.cpp
+DoublePendEquations.h
+/home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.h
+
+/home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.h
+FunctionWrapperRK4.h
+/home/jhallard/Double-Pendulum-Simulation/cpp/FunctionWrapperRK4.h
+stdexcept
+-
+
+/home/jhallard/Double-Pendulum-Simulation/cpp/FunctionWrapperRK4.h
+vector
+-
+cmath
+-
+

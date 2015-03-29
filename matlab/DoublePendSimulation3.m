@@ -53,20 +53,14 @@ theta2=solutionsvector(3,:)'; angvel2=solutionsvector(4,:)';
 %get the individual initial conditions and constants passed in by the user
 len1=ic(8); len2=ic(9);
 m1 = ic(6); m2 = ic(7);
-moment1 = 0.5.*m1.*len1.^2;
-moment2 = 0.5*m2.*len2.^2;
 grav = ic(5);
 
 %initialize vectors to hold the x and y coordinated of the lines we are
 %going to be plotting
 linex1 = zeros(0, numframes-1);
-linex2 = zeros(0,numframes-1); % x/y coordinates of trailing line for position 
+linex2 = zeros(0,numframes-1); 
 liney2 = zeros(0,numframes-1);
 liney1 = zeros(0, numframes-1);
-omega1 = zeros(0, numframes-1); 
-omega2 = zeros(0, numframes-1);
-ang1 = zeros(0,numframes-1);
-ang2 = zeros(0,numframes-1);
 timearr = zeros(0,numframes-1);
 
 %create the figure window, set it to outer edges of screen
@@ -101,11 +95,6 @@ liney2 = liney1-len2*cos(theta2);
             timearr(i) = i/fps;
             Xcoord=[0,linex1(i),linex2(i)];
             Ycoord=[0,liney1(i),liney2(i)];
-
-            ang1(i) = theta1(i);
-            ang2(i) = theta2(i);
-            omega1(i) = angvel1(i);
-            omega2(i) = angvel2(i);
             
             %pendulum position simulation
             set(pendline,'XData',linex2(1:i),'YData',liney2(1:i));
