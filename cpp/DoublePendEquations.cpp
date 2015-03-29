@@ -6,7 +6,8 @@ DoublePendEquations::DoublePendEquations(std::vector<double> constants)
 : FunctionWrapperRK4(4), _theta1(0), _theta2(0), _omega1(0), _omega2(0) {
     
     if(constants.size() != 5) {
-        throw std::logic_error("Error : Initial condition vector has wrong amount of information.Needs 5 double values (grav, ulen, umass, llen, lmass).");
+        throw std::logic_error(
+        "Error : Initial condition vector needs 5 double values (grav, ulen, umass, llen, lmass).");
     }
 
     for(auto x : constants) {
@@ -31,7 +32,8 @@ DoublePendEquations::DoublePendEquations(double gravity, double ulength, double 
     std::vector<double> constants = {gravity, ulength, umass, llength, lmass};
 
     if(constants.size() != 5) {
-        throw std::logic_error("Error : Initial condition vector has wrong amount of information.Needs 5 double values (grav, ulen, umass, llen, lmass).");
+        throw std::logic_error(
+        "Error : Initial condition vector needs 5 double values (grav, ulen, umass, llen, lmass).");
     }
 
     for(auto x : constants) {
@@ -50,7 +52,6 @@ DoublePendEquations::DoublePendEquations(double gravity, double ulength, double 
 // @func - upperThetaPrime
 // @info - This is the differential equation for the upper theta variable : theta1' = omega1
 double DoublePendEquations::upperThetaPrime(double time) {
-
     return _omega1;
 }
 
@@ -113,5 +114,4 @@ std::vector<double> DoublePendEquations::getValues(double curr_time, const std::
     diffeq_values.push_back(lowerOmegaPrime(curr_time));
 
     return diffeq_values;
-
 }

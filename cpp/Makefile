@@ -130,6 +130,7 @@ DoublePendEquations.o: DoublePendEquations.cpp.o
 # target to build an object file
 DoublePendEquations.cpp.o:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/DoublePendEquations.cpp.o
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/DoublePendEquations.cpp.o
 .PHONY : DoublePendEquations.cpp.o
 
 DoublePendEquations.i: DoublePendEquations.cpp.i
@@ -138,6 +139,7 @@ DoublePendEquations.i: DoublePendEquations.cpp.i
 # target to preprocess a source file
 DoublePendEquations.cpp.i:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/DoublePendEquations.cpp.i
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/DoublePendEquations.cpp.i
 .PHONY : DoublePendEquations.cpp.i
 
 DoublePendEquations.s: DoublePendEquations.cpp.s
@@ -146,6 +148,7 @@ DoublePendEquations.s: DoublePendEquations.cpp.s
 # target to generate assembly for a file
 DoublePendEquations.cpp.s:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/DoublePendEquations.cpp.s
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/DoublePendEquations.cpp.s
 .PHONY : DoublePendEquations.cpp.s
 
 DoublePendEquationsTest.o: DoublePendEquationsTest.cpp.o
@@ -178,6 +181,7 @@ FunctionWrapperRK4.o: FunctionWrapperRK4.cpp.o
 # target to build an object file
 FunctionWrapperRK4.cpp.o:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/FunctionWrapperRK4.cpp.o
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/FunctionWrapperRK4.cpp.o
 .PHONY : FunctionWrapperRK4.cpp.o
 
 FunctionWrapperRK4.i: FunctionWrapperRK4.cpp.i
@@ -186,6 +190,7 @@ FunctionWrapperRK4.i: FunctionWrapperRK4.cpp.i
 # target to preprocess a source file
 FunctionWrapperRK4.cpp.i:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/FunctionWrapperRK4.cpp.i
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/FunctionWrapperRK4.cpp.i
 .PHONY : FunctionWrapperRK4.cpp.i
 
 FunctionWrapperRK4.s: FunctionWrapperRK4.cpp.s
@@ -194,7 +199,32 @@ FunctionWrapperRK4.s: FunctionWrapperRK4.cpp.s
 # target to generate assembly for a file
 FunctionWrapperRK4.cpp.s:
 	$(MAKE) -f CMakeFiles/equation_test.dir/build.make CMakeFiles/equation_test.dir/FunctionWrapperRK4.cpp.s
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/FunctionWrapperRK4.cpp.s
 .PHONY : FunctionWrapperRK4.cpp.s
+
+RK4.o: RK4.cpp.o
+.PHONY : RK4.o
+
+# target to build an object file
+RK4.cpp.o:
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/RK4.cpp.o
+.PHONY : RK4.cpp.o
+
+RK4.i: RK4.cpp.i
+.PHONY : RK4.i
+
+# target to preprocess a source file
+RK4.cpp.i:
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/RK4.cpp.i
+.PHONY : RK4.cpp.i
+
+RK4.s: RK4.cpp.s
+.PHONY : RK4.s
+
+# target to generate assembly for a file
+RK4.cpp.s:
+	$(MAKE) -f CMakeFiles/rk4_test.dir/build.make CMakeFiles/rk4_test.dir/RK4.cpp.s
+.PHONY : RK4.cpp.s
 
 RK4_Test.o: RK4_Test.cpp.o
 .PHONY : RK4_Test.o
@@ -239,6 +269,9 @@ help:
 	@echo "... FunctionWrapperRK4.o"
 	@echo "... FunctionWrapperRK4.i"
 	@echo "... FunctionWrapperRK4.s"
+	@echo "... RK4.o"
+	@echo "... RK4.i"
+	@echo "... RK4.s"
 	@echo "... RK4_Test.o"
 	@echo "... RK4_Test.i"
 	@echo "... RK4_Test.s"
