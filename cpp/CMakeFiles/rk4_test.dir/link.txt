@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11    CMakeFiles/rk4_test.dir/RK4_Test.cpp.o  -o rk4_test -rdynamic 
