@@ -54,8 +54,6 @@ public:
     // @func - getEquations
     // @info - get the equations object being used currently.
     FunctionWrapperRK4 * getEquations();
-
-
 };
 
 
