@@ -152,16 +152,12 @@ std::vector<double> RK4::vectorAdd(std::vector<std::vector<double> > vecs) {
 
     int size = vecs[0].size();
 
-    std::vector<double> ret;
+    std::vector<double> ret(_num_equations, 0.0);
 
     for(auto vec : vecs) {
         if(vec.size() != size) {
             throw std::logic_error("Error : Vector addition requires same size vectors");
         }
-    }
-
-    for(int i = 0; i < size; i++) {
-        ret.push_back(0.0);
     }
 
     for(int i = 0; i < vecs.size(); i++) {
