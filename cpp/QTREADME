@@ -1,0 +1,3 @@
+# to start qt on the double pend project, use the one installed in QtCreator/bin
+cd ~/Qt/Tools/QtCreator/bin
+./qucreator ~/Double-Pendulum-Simulation/cpp/qt_test/testui/testui.pro
