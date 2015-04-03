@@ -227,7 +227,6 @@ RK4.o: RK4.cpp.o
 # target to build an object file
 RK4.cpp.o:
 	$(MAKE) -f CMakeFiles/rk4_output.dir/build.make CMakeFiles/rk4_output.dir/RK4.cpp.o
-	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4.cpp.o
 .PHONY : RK4.cpp.o
 
 RK4.i: RK4.cpp.i
@@ -236,7 +235,6 @@ RK4.i: RK4.cpp.i
 # target to preprocess a source file
 RK4.cpp.i:
 	$(MAKE) -f CMakeFiles/rk4_output.dir/build.make CMakeFiles/rk4_output.dir/RK4.cpp.i
-	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4.cpp.i
 .PHONY : RK4.cpp.i
 
 RK4.s: RK4.cpp.s
@@ -245,7 +243,6 @@ RK4.s: RK4.cpp.s
 # target to generate assembly for a file
 RK4.cpp.s:
 	$(MAKE) -f CMakeFiles/rk4_output.dir/build.make CMakeFiles/rk4_output.dir/RK4.cpp.s
-	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4.cpp.s
 .PHONY : RK4.cpp.s
 
 RK4_Test.o: RK4_Test.cpp.o
@@ -271,6 +268,30 @@ RK4_Test.s: RK4_Test.cpp.s
 RK4_Test.cpp.s:
 	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4_Test.cpp.s
 .PHONY : RK4_Test.cpp.s
+
+RK4_time.o: RK4_time.cpp.o
+.PHONY : RK4_time.o
+
+# target to build an object file
+RK4_time.cpp.o:
+	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4_time.cpp.o
+.PHONY : RK4_time.cpp.o
+
+RK4_time.i: RK4_time.cpp.i
+.PHONY : RK4_time.i
+
+# target to preprocess a source file
+RK4_time.cpp.i:
+	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4_time.cpp.i
+.PHONY : RK4_time.cpp.i
+
+RK4_time.s: RK4_time.cpp.s
+.PHONY : RK4_time.s
+
+# target to generate assembly for a file
+RK4_time.cpp.s:
+	$(MAKE) -f CMakeFiles/time_test.dir/build.make CMakeFiles/time_test.dir/RK4_time.cpp.s
+.PHONY : RK4_time.cpp.s
 
 print_values.o: print_values.cpp.o
 .PHONY : print_values.o
@@ -322,6 +343,9 @@ help:
 	@echo "... RK4_Test.o"
 	@echo "... RK4_Test.i"
 	@echo "... RK4_Test.s"
+	@echo "... RK4_time.o"
+	@echo "... RK4_time.i"
+	@echo "... RK4_time.s"
 	@echo "... print_values.o"
 	@echo "... print_values.i"
 	@echo "... print_values.s"
