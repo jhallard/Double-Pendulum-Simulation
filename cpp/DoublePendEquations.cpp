@@ -106,12 +106,12 @@ std::vector<double> DoublePendEquations::getValues(double curr_time, const std::
     _omega1 = state[2];
     _omega2 = state[3];
     
-    std::vector<double> diffeq_values;
+    std::vector<double> diffeq_values(4);
 
-    diffeq_values.push_back(upperThetaPrime(curr_time));
-    diffeq_values.push_back(lowerThetaPrime(curr_time));
-    diffeq_values.push_back(upperOmegaPrime(curr_time));
-    diffeq_values.push_back(lowerOmegaPrime(curr_time));
+    diffeq_values[0] = upperThetaPrime(curr_time);
+    diffeq_values[1] = lowerThetaPrime(curr_time);
+    diffeq_values[2] = upperOmegaPrime(curr_time);
+    diffeq_values[3] = lowerOmegaPrime(curr_time);
 
     return diffeq_values;
 }

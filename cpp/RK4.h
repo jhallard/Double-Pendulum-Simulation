@@ -3,6 +3,8 @@
 
 #include "FunctionWrapperRK4.h"
 #include <stdexcept>
+#include <iostream>
+#include <chrono>
 
 // @class - RK4
 // @info  - The purpose of this class is to take in a given set of equations (an Rk4_Equations class), and solve them using the RK4 method over
@@ -29,7 +31,7 @@ private:
 
     // @func - vectorAdd
     // @info - takes a vector of vectors of the same length and adds all the components together
-    std::vector<double> vectorAdd(std::vector<std::vector<double> > vecs);
+    std::vector<double> vectorAdd(const std::vector<std::vector<double> *> & vecs);
 
 
 public:
