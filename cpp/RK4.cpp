@@ -58,9 +58,9 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         x.resize(num_steps);
     }
 
-    long double average_add_solutions = 0.0;
-    long double average_k1 = 0.0, average_k2 = 0.0, average_k3 = 0.0, average_k4 = 0.0;
-    long long int count = 0; 
+    // long double average_add_solutions = 0.0;
+    // long double average_k1 = 0.0, average_k2 = 0.0, average_k3 = 0.0, average_k4 = 0.0;
+    // long long int count = 0; 
 
     // auto start = std::chrono::high_resolution_clock::now(); // #remove
     // auto elapsed = std::chrono::high_resolution_clock::now() - start;   

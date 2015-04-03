@@ -24,8 +24,8 @@ int main(int argc, char ** argv) {
 
     auto ret = rk4.query(0, tf, 0.001);
 
-    int it = 1; 
-    printf("theta1 Theta2 dTheta1 dTheta2\n");
+    // int it = 1; 
+    // printf("theta1 Theta2 dTheta1 dTheta2\n");
     for(int i = 0; i < ret[0].size(); i++) {
         for(int j = 0; j < ret.size(); j++) {
           printf("%4.2f ", ret[j][i]);
