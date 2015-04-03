@@ -69,7 +69,7 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
     for(int i = 0; i < num_steps; i++) {
         double t = i*_disc;
 
-        count++; // #remove this
+       // count++; // #remove this
 
         // start = std::chrono::high_resolution_clock::now(); // #remove
 
