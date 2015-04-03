@@ -1,2 +1,2 @@
-Solve Runtime Stats : 1.953seconds;
-Query Runtime Stats : 1milliseconds;
+Solve Runtime Stats : 7.528seconds;
+Query Runtime Stats : 4milliseconds;
