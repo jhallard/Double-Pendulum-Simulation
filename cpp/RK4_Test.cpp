@@ -9,17 +9,20 @@ int main() {
 
     RK4 rk4(&dp);
 
-    rk4.solve(0.001, 10, in);
+    rk4.solve(0.0001, 10, in);
 
-    auto ret = rk4.query(0, 2, 0.1);
+    auto ret = rk4.query(0, 2, 0.001);
 
-    int it = 1;
-    for(auto x : ret) {
-       printf("%d : ", it++);
-        for(auto y : x) {
-            printf("%f ", y);
+    int it = 1; 
+    printf("theta1 Theta2 dTheta1 dTheta2\n");
+    for(int i = 0; i < ret[0].size(); i++) {
+        for(int j = 0; j < ret.size(); j++) {
+          printf("%4.2f ", ret[j][i]);
         }
         printf("\n");
     }
+
     return 0;
+
+
 }
