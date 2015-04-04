@@ -10,8 +10,8 @@
 #include <cgicc/HTTPHTMLHeader.h> 
 #include <cgicc/HTMLClasses.h> 
 
-#include "~/Double-Pendulum-Simulation/cpp/RK4.h"
-#include "~/Double-Pendulum-Simulation/cpp/DoublePendEquations.h"
+#include "/home/jhallard/Double-Pendulum-Simulation/cpp/RK4.h"
+#include "/home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.h"
 
 
 using namespace std;
@@ -27,12 +27,12 @@ int main ()
 
    form_iterator fi = formData.getElement("disc");  
    if( !fi->isEmpty() && fi != (*formData).end()) {  
-      disc = atof(**fi);  
+      disc = atof((**fi).c_str());  
    }
 
    fi = formData.getElement("tf");  
    if( !fi->isEmpty() &&fi != (*formData).end()) {  
-      tf = atof(**fi);  
+      tf = atof((**fi).c_str());  
    }
    
    cout << "Content-type:text/plain\r\n\r\n";
@@ -45,7 +45,7 @@ int main ()
 
     rk4.solve(disc, tf, in);
 
-    auto ret = rk4.query(0, tf, 0.001);
+    auto ret = rk4.query(0, tf, disc*10.0);
 
     // int it = 1; 
     // printf("theta1 Theta2 dTheta1 dTheta2\n");
