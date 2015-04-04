@@ -81,8 +81,10 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         // start = std::chrono::high_resolution_clock::now(); // #remove
 
         for(int j = 0; j < states.size(); j++) {
-            _solutions[j][i] = states[j];
+            // _solutions[j][i] = states[j];
+            printf("%5.3f ", states[j]);
         }
+        printf("\n");
 
         // # remove next three
         // elapsed = std::chrono::high_resolution_clock::now() - start;   
