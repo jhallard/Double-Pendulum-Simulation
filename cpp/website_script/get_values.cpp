@@ -26,6 +26,7 @@ int main ()
    double disc = 0.00001;
    double step = 0.01666;
 
+   
    std::vector<double> ic = {9.8, 2.1, 1.2, 1.5, 0.9, 0.5, -0.5, 1.3, 1.2};
    std::vector<string> ic_str  = {"grav", "len1", "mass1", "len2", "mass2", "theta1", "theta2", "dtheta1", "dtheta2"};
 
