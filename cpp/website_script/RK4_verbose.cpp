@@ -226,8 +226,8 @@ std::vector<double> RK4::vectorAdd(const std::vector<std::vector<double> * > & v
     //     }
     // }
 
-    for(int i = 0; i < vecs.size(); i++) {
-        for(int j = 0; j < size; j++) {
+    for(int i = 0; i < size; i++) {
+        for(int j = 0; j < vec.size; j++) {
             ret[i] += vecs[i]->at(j);
         }
     }
