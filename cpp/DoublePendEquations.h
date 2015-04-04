@@ -4,6 +4,7 @@
 #include "FunctionWrapperRK4.h"
 
 #include <stdexcept>
+#include <iostream>
 
 using namespace std;
 // @class - DoublePendEquations
