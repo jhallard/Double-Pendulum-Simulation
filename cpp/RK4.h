@@ -15,7 +15,7 @@ class RK4 {
 private:
 
     int _num_equations;                  // number of equations to be solved simultaneously
-    double _disc;                        // discretization step
+    long double _disc;                        // discretization step
     std::vector<double> _k1, _k2, _k3, _k4; // 4 K vectors
     double _tf;
 
@@ -43,7 +43,7 @@ public:
 
     // @func - solve
     // @args - #1 discretization, #2 final time for simulation (from 0s), #3 vector of initial condition values
-    bool solve(double disc, double tf, std::vector<double> ic);
+    bool solve(long double disc, double tf, std::vector<double> ic);
 
     // @func - query
     // @args - #1 the starting time for the query, #2 the end time for the query, #3 the time step you wish to jump between those points

@@ -39,7 +39,7 @@ void printKValues(std::vector<std::vector<double> > vals) {
 
 // @func - solve
 // @args - #1 discretization, #2 final time for simulation (from 0s), #3 vector of initial condition values
-bool RK4::solve(double disc, double tf, std::vector<double> ic) {
+bool RK4::solve(long double disc, double tf, std::vector<double> ic) {
     if(disc <= 0) {
         throw std::logic_error("Error : Time step must be > 0.");
     }

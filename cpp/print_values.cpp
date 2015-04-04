@@ -14,9 +14,9 @@ int main(int argc, char ** argv) {
     if(argc == 3)
         tf = atof(argv[2]);
 
-    DoublePendEquations dp(9.8, 2.0, 1.0, 2.0, 1.0);
+    DoublePendEquations dp(9.8, 2.0, 1.0, 1.0, 0.5);
     // FunctionWrapperRK4 * base_ptr = &dp;
-    std::vector<double> in = {0.0, -0.5, 1.3, 0.4};
+    std::vector<double> in = {0.0, 0.0, 0.0, 1.01};
 
     RK4 rk4(&dp);
 
@@ -28,7 +28,7 @@ int main(int argc, char ** argv) {
     // printf("theta1 Theta2 dTheta1 dTheta2\n");
     for(int i = 0; i < ret[0].size(); i++) {
         for(int j = 0; j < ret.size(); j++) {
-          printf("%4.2f ", ret[j][i]);
+          printf("%5.3f ", ret[j][i]);
         }
         printf("\n");
     }
