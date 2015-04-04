@@ -108,8 +108,8 @@ void DoublePendEquations::getValues(double curr_time, const std::vector<double> 
     
     // diffeq_values->at(0) = upperThetaPrime(curr_time);
     // diffeq_values->at(1) = lowerThetaPrime(curr_time);
-    diffeq_values->at(0) = state[0];
-    diffeq_values->at(1) = state[1];
+    diffeq_values->at(0) = state[2];
+    diffeq_values->at(1) = state[3];
     diffeq_values->at(2) = upperOmegaPrime(curr_time);
     diffeq_values->at(3) = lowerOmegaPrime(curr_time);
 }
