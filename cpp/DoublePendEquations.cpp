@@ -73,7 +73,7 @@ double DoublePendEquations::upperOmegaPrime(double time) {
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in upperOmegaPrime");
 
-    return (double)(numerator)/denominator;
+    return (double)(numerator)/(double)denominator;
 }
 
 // @func - upperThetaPrime
@@ -89,7 +89,7 @@ double DoublePendEquations::lowerOmegaPrime(double time) {
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in lowerOmegaPrime");
 
-    return (double)(numerator)/denominator;
+    return (double)(numerator)/(double)denominator;
 }
 
 // @func - getValues
