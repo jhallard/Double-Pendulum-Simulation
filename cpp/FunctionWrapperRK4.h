@@ -18,9 +18,9 @@ public:
     FunctionWrapperRK4(int);
 
     // @func - getValues
-    // @args - #1 current time value to be used #2 current state values to be used
+    // @args - #1 current time value to be used #2 current state values to be used, #3 vector to return values in
     // @info - Overwritte this with child classes to return the true function values.
-    virtual std::vector<double> getValues(double, const std::vector<double> &) = 0;
+    virtual void getValues(double, const std::vector<double> &, std::vector<double> *) = 0;
 
     // @self-documenting
     int getNumEquations() const; 

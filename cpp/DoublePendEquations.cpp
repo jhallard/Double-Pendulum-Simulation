@@ -95,7 +95,7 @@ double DoublePendEquations::lowerOmegaPrime(double time) {
 //         uangvel, langle, langvel)
 // #info - This function is simply going to call the 4 private utility functions to get the values, it exists to fufill the interface defined
 //         by the base class in the hierarchy.
-std::vector<double> DoublePendEquations::getValues(double curr_time, const std::vector<double> & state) {
+void DoublePendEquations::getValues(double curr_time, const std::vector<double> & state, std::vector<double> * diffeq_values) {
 
     if(state.size() != 4) {
         throw std::logic_error("Error : state-vector must contain 4 double values (theta1, theta2, omega1, omega2.");
@@ -106,12 +106,8 @@ std::vector<double> DoublePendEquations::getValues(double curr_time, const std::
     _omega1 = state[2];
     _omega2 = state[3];
     
-    std::vector<double> diffeq_values(4);
-
-    diffeq_values[0] = upperThetaPrime(curr_time);
-    diffeq_values[1] = lowerThetaPrime(curr_time);
-    diffeq_values[2] = upperOmegaPrime(curr_time);
-    diffeq_values[3] = lowerOmegaPrime(curr_time);
-
-    return diffeq_values;
+    diffeq_values->at(0) = upperThetaPrime(curr_time);
+    diffeq_values->at(1) = lowerThetaPrime(curr_time);
+    diffeq_values->at(2) = upperOmegaPrime(curr_time);
+    diffeq_values->at(3) = lowerOmegaPrime(curr_time);
 }

@@ -17,6 +17,12 @@ RK4::RK4(FunctionWrapperRK4 * fn) {
     _num_equations = _equations->getNumEquations();
 
     _solutions.resize(_num_equations);
+
+    _k1.resize(_num_equations, 0.0);
+    _k2.resize(_num_equations, 0.0);
+    _k3.resize(_num_equations, 0.0);
+    _k4.resize(_num_equations, 0.0);
+
 }
 
 void printKValues(std::vector<std::vector<double> > vals) {
@@ -82,25 +88,25 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         average_add_solutions += m;
 
         start = std::chrono::high_resolution_clock::now();
-        _k1 = _equations->getValues(t, states);
+        _equations->getValues(t, states, &_k1);
         elapsed = std::chrono::high_resolution_clock::now() - start;   
         m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         average_k1 += m;
 
         start = std::chrono::high_resolution_clock::now();
-        _k2 = _equations->getValues(t+0.5*disc, stateAdjust(states, _k1, 0.5));
+        _equations->getValues(t+0.5*disc, stateAdjust(states, _k1, 0.5), &_k2);
         elapsed = std::chrono::high_resolution_clock::now() - start;   
         m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         average_k2 += m;
 
         start = std::chrono::high_resolution_clock::now();
-        _k3 = _equations->getValues(t+0.5*disc, stateAdjust(states, _k2, 0.5));
+        _equations->getValues(t+0.5*disc, stateAdjust(states, _k2, 0.5), &_k3);
         elapsed = std::chrono::high_resolution_clock::now() - start;   
         m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         average_k3 += m;
 
         start = std::chrono::high_resolution_clock::now();
-        _k4 = _equations->getValues(t+disc, stateAdjust(states, _k2, 1.0));
+        _equations->getValues(t+disc, stateAdjust(states, _k2, 1.0), &_k4);
         elapsed = std::chrono::high_resolution_clock::now() - start;   
         m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         average_k4 += m;
@@ -181,9 +187,11 @@ FunctionWrapperRK4 * RK4::getEquations() {
 // @args - #1 vector to be adjusted, #2 vector to add to the first, #3 constant factor to adjust 2nd vector by
 std::vector<double> RK4::stateAdjust(const std::vector<double> & base, const std::vector<double> & adj, double factor) {
 
-    if(base.size() != adj.size()) {
-        throw std::logic_error("Error : Vector addition requires same size vectors");
-    }
+    // removed to speed up the simulation
+
+    // if(base.size() != adj.size()) {
+    //     throw std::logic_error("Error : Vector addition requires same size vectors");
+    // }
 
     std::vector<double> ret(base.size());
 

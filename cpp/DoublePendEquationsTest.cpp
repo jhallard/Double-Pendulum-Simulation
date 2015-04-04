@@ -10,7 +10,8 @@ int main() {
         printf("%f ", x);
     }
 
-    std::vector<double> vec = base_ptr->getValues(2.4, in);
+    std::vector<double> vec;
+    base_ptr->getValues(2.4, in, &vec);
 
     for(auto x : vec) {
         printf("%f ", x);
