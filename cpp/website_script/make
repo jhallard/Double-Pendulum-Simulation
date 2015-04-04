@@ -1,1 +1,5 @@
-sudo g++ -std=c++11 -o get_values.cgi get_values.cpp /home/jhallard/Double-Pendulum-Simulation/cpp/website_script/RK4_verbose.cpp /home/jhallard/Double-Pendulum-Simulation/cpp/FunctionWrapperRK4.cpp /home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.cpp -lcgicc
+sudo g++ -std=c++11 -o /home/jhallard/Double-Pendulum-Simulation/cpp/website_script/get_values.cgi \
+/home/jhallard/Double-Pendulum-Simulation/cpp/website_script/get_values.cpp \
+/home/jhallard/Double-Pendulum-Simulation/cpp/website_script/RK4_verbose.cpp \
+/home/jhallard/Double-Pendulum-Simulation/cpp/FunctionWrapperRK4.cpp \
+/home/jhallard/Double-Pendulum-Simulation/cpp/DoublePendEquations.cpp -lcgicc

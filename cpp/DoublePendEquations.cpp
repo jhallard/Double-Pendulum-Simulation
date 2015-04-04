@@ -67,7 +67,7 @@ double DoublePendEquations::upperOmegaPrime(double time) {
     double numerator = -1.0*_gravity*(2*_mass1+_mass2)*sin(_theta1) - _gravity*_mass2*sin(_theta1-2*_theta2);
     numerator = numerator - 2.0*_mass2*sin(_theta1-_theta2)*(_length2*pow(_omega2, 2.0)+_length1*pow(_omega1, 2.0)*cos(_theta1-_theta2));
 
-    double denominator =_length1*(2*.0_mass1+_mass2*(1-cos(2*(_theta1-_theta2))));
+    double denominator =_length1*(2.0*_mass1+_mass2*(1-cos(2*(_theta1-_theta2))));
 
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in upperOmegaPrime");
