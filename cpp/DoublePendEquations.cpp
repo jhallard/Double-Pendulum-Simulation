@@ -69,7 +69,7 @@ double DoublePendEquations::upperOmegaPrime(double time) {
 
     double denominator = _length1*(2.0*_mass1+_mass2 -_mass2*cos(2.0*_theta1-2.0*_theta2));
 
-    std::cout << "1 num : " << numerator << " , " << "denom : " << denominator << "\n";
+    // std::cout << "1 num : " << numerator << " , " << "denom : " << denominator << "\n";
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in upperOmegaPrime");
 
@@ -85,7 +85,7 @@ double DoublePendEquations::lowerOmegaPrime(double time) {
 
     double denominator = _length2*(2.0*_mass1+_mass2 -_mass2*cos(2.0*_theta1-2.0*_theta2));
 
-    std::cout << "2 num : " << numerator << " , " << "denom : " << denominator << "\n";
+    // std::cout << "2 num : " << numerator << " , " << "denom : " << denominator << "\n";
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in lowerOmegaPrime");
 
