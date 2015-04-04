@@ -27,7 +27,7 @@ int main ()
    double step = 0.01666;
 
    std::vector<double> ic = {9.8, 2.1, 1.2, 1.5, 0.9, 0.5, -0.5, 1.3, 1.2};
-   std::vector<double> ic_str  = {"grav", "len1", "mass1", "len2", "mass2", "theta1", "theta2", "dtheta1", "dtheta2"};
+   std::vector<string> ic_str  = {"grav", "len1", "mass1", "len2", "mass2", "theta1", "theta2", "dtheta1", "dtheta2"};
 
    form_iterator fi; 
    for(int i = 0; i < ic.size(); i++) {
@@ -36,12 +36,12 @@ int main ()
          ic[i] = atof((**fi).c_str());  
       }
    }
-   form_iterator fi = formData.getElement("disc");  
+   fi = formData.getElement("disc");  
    if( !fi->isEmpty() && fi != (*formData).end()) {  
       disc = atof((**fi).c_str());  
    }
 
-   form_iterator fi = formData.getElement("step");  
+   fi = formData.getElement("step");  
    if( !fi->isEmpty() && fi != (*formData).end()) {  
       step = atof((**fi).c_str());  
    }
