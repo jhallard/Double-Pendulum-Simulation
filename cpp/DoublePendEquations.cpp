@@ -80,10 +80,11 @@ double DoublePendEquations::upperOmegaPrime(double time) {
 double DoublePendEquations::lowerOmegaPrime(double time) {
 
     double numerator = 2.0*sin(_theta1-_theta2);
-    numerator *= (_length1*pow(_omega1,2.0)*(_mass1+_mass2)*_gravity*cos(_theta1)*(_mass1+_mass2)+_length2*_mass2*pow(_omega2,2.0)*cos(_theta1-_theta2));
+    numerator = numerator*(_length1*pow(_omega1,2.0)*(_mass1+_mass2)*_gravity*cos(_theta1)*(_mass1+_mass2)+_length2*_mass2*pow(_omega2,2.0)*cos(_theta1-_theta2));
 
     double denominator = _length2*(2.0*_mass1+_mass2 -_mass2*cos(2.0*_theta1-2.0*_theta2));
 
+    std::cout << "denom : " << denominator << "\n";
     if(denominator == 0)
         throw std::logic_error("Error : Denominator 0 in lowerOmegaPrime");
 
