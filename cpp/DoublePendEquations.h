@@ -4,6 +4,8 @@
 #include "FunctionWrapperRK4.h"
 
 #include <stdexcept>
+
+using namespace std;
 // @class - DoublePendEquations
 // @info  - This class is a child class of the FunctionWrapperRK4 base class, and is used to represent the differential-equations of motions
 //          for a double-pendulum in a manner that allows them to be solved by our implementation of the Runge-Kutta-4 method (@file RK4.h). 
