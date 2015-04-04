@@ -40,7 +40,7 @@ void printKValues(std::vector<std::vector<double> > vals) {
 
 // @func - solve
 // @args - #1 discretization, #2 final time for simulation (from 0s), #3 vector of initial condition values
-bool RK4::solve(double disc, double tf, std::vector<double> ic) {
+bool RK4::solve(long double disc, double tf, std::vector<double> ic) {
     if(disc <= 0) {
         throw std::logic_error("Error : Time step must be > 0.");
     }
@@ -76,46 +76,17 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
     for(int i = 0; i < num_steps; i++) {
         double t = i*_disc;
 
-       // count++; // #remove this
 
-        // start = std::chrono::high_resolution_clock::now(); // #remove
-
-        // if(i % 10 == 1) {
             for(int j = 0; j < states.size(); j++) {
                 _solutions[j][i] = states[j];
-                // printf("%5.3f ", states[j]);
             }
-            // printf("\n");
-        // }
 
-        // # remove next three
-        // elapsed = std::chrono::high_resolution_clock::now() - start;   
-        // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        // average_add_solutions += m;
 
-        // start = std::chrono::high_resolution_clock::now();
         _equations->getValues(t, states, &_k1);
-        // elapsed = std::chrono::high_resolution_clock::now() - start;   
-        // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        // average_k1 += m;
-
-        // start = std::chrono::high_resolution_clock::now();
         _equations->getValues(t+0.5*disc, stateAdjust(states, _k1, 0.5), &_k2);
-        // elapsed = std::chrono::high_resolution_clock::now() - start;   
-        // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        // average_k2 += m;
-
-        // start = std::chrono::high_resolution_clock::now();
         _equations->getValues(t+0.5*disc, stateAdjust(states, _k2, 0.5), &_k3);
-        // elapsed = std::chrono::high_resolution_clock::now() - start;   
-        // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        // average_k3 += m;
-
-        // start = std::chrono::high_resolution_clock::now();
         _equations->getValues(t+1.0*disc, stateAdjust(states, _k3, 1.0), &_k4);
-        // elapsed = std::chrono::high_resolution_clock::now() - start;   
-        // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
-        // average_k4 += m;
+
 
         std::vector<std::vector<double> *> vals = {&_k1, &_k2, &_k2, &_k3, &_k3, &_k4};
         // printKValues(vals);
@@ -125,19 +96,7 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         states = stateAdjust(states, sum, 0.16666);
     }
 
-    // average_add_solutions = (double)average_add_solutions/(double)count;
-    // average_k1 = (double)average_k1/(double)count;
-    // average_k2 = (double)average_k2/(double)count;
-    // average_k3 = (double)average_k3/(double)count;
-    // average_k4 = (double)average_k4/(double)count;
-    // // average_k_total = (double)average_k_total/(double)count;
 
-    // std::cout << "add solutions : " << average_add_solutions << "\n";
-    // std::cout << "average_k1 : " << average_k1 << "\n";
-    // std::cout << "average_k2 : " << average_k2 << "\n";
-    // std::cout << "average_k3 : " << average_k3 << "\n";
-    // std::cout << "average_k4 : " << average_k4 << "\n";
-    // std::cout << "average_k_total : " << average_k_total << "\n";
 
     return true;
 }

@@ -76,14 +76,14 @@ double DoublePendEquations::upperOmegaPrime(double time) {
     return (double)(numerator)/(double)denominator;
 }
 
+
 // @func - upperThetaPrime
 // @info - This is the differential equation for the upper omega (angular velocity) variable : omega2' = L1cos(theta_1-theta_2)...
 double DoublePendEquations::lowerOmegaPrime(double time) {
 
-    double numerator = 2.0*sin(_theta1-_theta2);
-    numerator = numerator*(_length1*pow(_omega1,2)*(_mass1+_mass2)*_gravity*cos(_theta1)*(_mass1+_mass2)+_length2*_mass2*pow(_omega2,2)*cos(_theta1-_theta2));
+    double numerator = 2.0*sin(_theta1-_theta2)*(_length1*pow(_omega1,2)*(_mass1+_mass2) + _gravity*cos((double)_theta1)*(_mass1+_mass2)+_length2*_mass2*pow(_omega2,2)*cos((double)_theta1-_theta2));
 
-    double denominator = _length2*(2.0*_mass1+_mass2 -_mass2*cos(2.0*_theta1-2.0*_theta2));
+    double denominator = _length2*(2.0*_mass1+_mass2 -_mass2*cos(1.0*_theta1-1.0*_theta2));
 
     // std::cout << "2 num : " << numerator << " , " << "denom : " << denominator << "\n";
     if(denominator == 0)
@@ -91,6 +91,7 @@ double DoublePendEquations::lowerOmegaPrime(double time) {
 
     return (double)(numerator)/(double)denominator;
 }
+
 
 // @func - getValues
 // @args - #1 current time value to be used in the calculations, #2 vector of values for the 4 changing state variables (uangle,
@@ -108,10 +109,10 @@ void DoublePendEquations::getValues(double curr_time, const std::vector<double> 
     _omega1 = state[2];
     _omega2 = state[3];
     
-    // diffeq_values->at(0) = upperThetaPrime(curr_time);
-    // diffeq_values->at(1) = lowerThetaPrime(curr_time);
-    diffeq_values->at(0) = state[2];
-    diffeq_values->at(1) = state[3];
+    diffeq_values->at(0) = upperThetaPrime(curr_time);
+    diffeq_values->at(1) = lowerThetaPrime(curr_time);
+    // diffeq_values->at(0) = state[2];
+    // diffeq_values->at(1) = state[3];
     diffeq_values->at(2) = upperOmegaPrime(curr_time);
     diffeq_values->at(3) = lowerOmegaPrime(curr_time);
 }
