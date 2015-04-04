@@ -112,7 +112,7 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         // average_k3 += m;
 
         // start = std::chrono::high_resolution_clock::now();
-        _equations->getValues(t+disc, stateAdjust(states, _k3, 1.0), &_k4);
+        _equations->getValues(t+1.0*disc, stateAdjust(states, _k3, 1.0), &_k4);
         // elapsed = std::chrono::high_resolution_clock::now() - start;   
         // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         // average_k4 += m;
@@ -201,7 +201,7 @@ std::vector<double> RK4::stateAdjust(const std::vector<double> & base, const std
     std::vector<double> ret(base.size());
 
     for(int i = 0; i < base.size(); i++) {
-        ret.at(i) = base[i]+adj[i]*factor*_disc;
+        ret[i] = base[i]+adj[i]*factor*_disc;
     }
 
     return ret;
@@ -228,7 +228,7 @@ std::vector<double> RK4::vectorAdd(const std::vector<std::vector<double> * > & v
 
     for(int i = 0; i < vecs.size(); i++) {
         for(int j = 0; j < size; j++) {
-            ret[j] += vecs[i]->at(j);
+            ret[i] += vecs[i]->at(j);
         }
     }
 
