@@ -108,7 +108,7 @@ bool RK4::solve(double disc, double tf, std::vector<double> ic) {
         // average_k3 += m;
 
         // start = std::chrono::high_resolution_clock::now();
-        _equations->getValues(t+disc, stateAdjust(states, _k2, 1.0), &_k4);
+        _equations->getValues(t+disc, stateAdjust(states, _k3, 1.0), &_k4);
         // elapsed = std::chrono::high_resolution_clock::now() - start;   
         // m = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
         // average_k4 += m;
